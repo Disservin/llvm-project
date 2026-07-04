@@ -1043,6 +1043,16 @@ the opposite of inlining. It can help to reduce code size.
   }];
 }
 
+def NoIPADocs : Documentation {
+  let Category = DocCatFunction;
+  let Content = [{
+This function attribute suppresses interprocedural optimization involving the
+annotated function. Clang lowers it to LLVM IR's ``noipa`` function attribute
+and sets the ```noinline`` function attribute as well, unless always_inline
+is specified.
+  }];
+}
+
 def MustTailDocs : Documentation {
   let Category = DocCatStmt;
   let Content = [{
