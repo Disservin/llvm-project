@@ -3107,7 +3107,8 @@ void CodeGenModule::SetLLVMFunctionAttributesForDefinition(const Decl *D,
 
   if (D->hasAttr<NoIPAAttr>()) {
     B.addAttribute(llvm::Attribute::NoIPA);
-    if (!F->hasFnAttribute(llvm::Attribute::AlwaysInline))
+    if (!D->hasAttr<AlwaysInlineAttr>() &&
+        !F->hasFnAttribute(llvm::Attribute::AlwaysInline))
       B.addAttribute(llvm::Attribute::NoInline);
   }
 

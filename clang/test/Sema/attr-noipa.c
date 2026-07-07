@@ -1,4 +1,5 @@
 // RUN: %clang_cc1 -verify -fsyntax-only %s
+// RUN: %clang_cc1 -verify -fsyntax-only -x c++ %s
 
 __attribute__((noipa)) int a; // expected-warning {{'noipa' attribute only applies to functions}}
 
