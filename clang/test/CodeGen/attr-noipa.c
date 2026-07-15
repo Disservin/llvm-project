@@ -26,3 +26,5 @@ static inline __attribute__((noipa, always_inline)) int always_inline_callee(int
 int always_inline_caller(int x) {
   return always_inline_callee(x);
 }
+
+// CHECK: attributes #0 = { {{.*}}noipa noinline
